@@ -19,7 +19,7 @@ var
 begin
   Result := SameText(wOption, 'On');
 
-  xReg := TRegistry.Create(KEY_ALL_ACCESS or KEY_WOW64_64KEY);
+  xReg := TRegistry.Create(KEY_ALL_ACCESS);
   try
     xReg.RootKey := ROOT;
     if SameText(wOption, 'On') then

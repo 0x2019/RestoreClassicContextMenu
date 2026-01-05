@@ -19,7 +19,7 @@ var
   defVal: string;
 begin
   Result := False;
-  xReg := TRegistry.Create(KEY_READ or KEY_WOW64_64KEY);
+  xReg := TRegistry.Create(KEY_READ);
   try
     xReg.RootKey := ROOT;
     if xReg.OpenKeyReadOnly(PATH) then

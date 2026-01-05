@@ -5,9 +5,9 @@
         <FrameworkType>VCL</FrameworkType>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Release</Config>
-        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <Platform Condition="'$(Platform)'==''">Win64</Platform>
         <ProjectName Condition="'$(ProjectName)'==''">RestoreClassicContextMenu</ProjectName>
-        <TargetedPlatforms>3</TargetedPlatforms>
+        <TargetedPlatforms>2</TargetedPlatforms>
         <AppType>Application</AppType>
         <MainSource>RestoreClassicContextMenu.dpr</MainSource>
     </PropertyGroup>
@@ -126,6 +126,13 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <DCC_ExeOutput>.\</DCC_ExeOutput>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <DCC_AssertionsAtRuntime>false</DCC_AssertionsAtRuntime>
+        <DCC_ImportedDataReferences>false</DCC_ImportedDataReferences>
+        <Icon_MainIcon>RestoreClassicContextMenu_Icon.ico</Icon_MainIcon>
+        <VerInfo_Keys>CompanyName=;FileDescription=Restore Classic Context Menu;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=;ProductName=Restore Classic Context Menu;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
@@ -160,7 +167,7 @@
                     <Source Name="MainSource">RestoreClassicContextMenu.dpr</Source>
                 </Source>
                 <Excluded_Packages>
-                    <Excluded_Packages Name="F:\Programming\Delphi\Projects_GitHub\Inno Setup\Components\UniPs\Dcu\D29\win32\PascalScript_Core_D29.bpl">RemObjects Pascal Script - Core Package</Excluded_Packages>
+                    <Excluded_Packages Name="F:\Programming\Delphi\Projects_GitHub\Inno Setup\Components\UniPs\Dcu\D29\win32\PascalScript_Core_D29.bpl">File F:\Programming\Delphi\Projects_GitHub\Inno Setup\Components\UniPs\Dcu\D29\win32\PascalScript_Core_D29.bpl not found</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k290.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclofficexp290.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
                 </Excluded_Packages>
@@ -1140,7 +1147,7 @@
                 <ProjectRoot Platform="Win64x" Name="$(PROJECTNAME)"/>
             </Deployment>
             <Platforms>
-                <Platform value="Win32">True</Platform>
+                <Platform value="Win32">False</Platform>
                 <Platform value="Win64">True</Platform>
             </Platforms>
         </BorlandProject>

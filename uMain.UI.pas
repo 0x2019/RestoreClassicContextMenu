@@ -73,8 +73,6 @@ end;
 procedure UI_RestartExplorerTimer(AForm: TObject);
 var
   F: TfrmMain;
-  OldFsRedirState: Pointer;
-  FsRedirDisabled: BOOL;
 begin
   if not (AForm is TfrmMain) then Exit;
   F := TfrmMain(AForm);
@@ -89,13 +87,7 @@ begin
 
   if not IsExplorerRunning then
   begin
-    FsRedirDisabled := Wow64DisableWow64FsRedirection(OldFsRedirState);
-    try
-      ShellExecute(F.Handle, 'open', 'explorer.exe', nil, nil, SW_SHOWNORMAL);
-    finally
-      if FsRedirDisabled then
-        Wow64RevertWow64FsRedirection(OldFsRedirState);
-    end;
+    ShellExecute(F.Handle, 'open', 'explorer.exe', nil, nil, SW_SHOWNORMAL);
   end;
 end;
 

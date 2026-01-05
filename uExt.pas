@@ -7,9 +7,6 @@ uses
 
 function RtlGetVersion(var RTL_OSVERSIONINFOEXW): LONG; stdcall; external 'ntdll.dll' Name 'RtlGetVersion';
 
-function Wow64DisableWow64FsRedirection(var OldValue: Pointer): BOOL; stdcall; external 'kernel32.dll';
-function Wow64RevertWow64FsRedirection(OldValue: Pointer): BOOL; stdcall; external 'kernel32.dll';
-
 function IsExplorerRunning: Boolean;
 function IsExplorerUILoaded: Boolean;
 

@@ -5,11 +5,11 @@ interface
 uses
   Winapi.Windows, System.SysUtils, Registry;
 
-function RemoveShowMoreOptionsW(wOption: string): Boolean;
+function RemoveShowMoreOptionsW(Enable: Boolean): Boolean;
 
 implementation
 
-function RemoveShowMoreOptionsW(wOption: string): Boolean;
+function RemoveShowMoreOptionsW(Enable: Boolean): Boolean;
 const
   ROOT = HKEY_CURRENT_USER;
   GUID = '{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}';
@@ -17,12 +17,13 @@ const
 var
   xReg: TRegistry;
 begin
-  Result := SameText(wOption, 'On');
+  Result := Enable;
 
   xReg := TRegistry.Create(KEY_ALL_ACCESS);
   try
     xReg.RootKey := ROOT;
-    if SameText(wOption, 'On') then
+
+    if Enable then
     begin
       if xReg.OpenKey(PATH, True) then
       try
@@ -36,7 +37,7 @@ begin
         xReg.CloseKey;
       end;
     end
-    else if SameText(wOption, 'Off') then
+    else
     begin
       try
         if not xReg.DeleteKey('Software\Classes\CLSID\' + GUID) then
@@ -48,6 +49,7 @@ begin
         on E: Exception do
           OutputDebugString(PChar('DeleteKey failed at Software\Classes\CLSID\' + GUID + ': ' + E.Message));
       end;
+
       Result := False;
     end;
   finally

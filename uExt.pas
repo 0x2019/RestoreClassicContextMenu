@@ -3,7 +3,7 @@
 interface
 
 uses
-  Winapi.Windows, System.SysUtils, ShellAPI, TlHelp32;
+  Winapi.Windows, System.SysUtils, TlHelp32;
 
 function RtlGetVersion(var RTL_OSVERSIONINFOEXW): LONG; stdcall; external 'ntdll.dll' Name 'RtlGetVersion';
 

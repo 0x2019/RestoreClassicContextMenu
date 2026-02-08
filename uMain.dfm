@@ -165,9 +165,9 @@ object frmMain: TfrmMain
     TabOrder = 1
     TabStop = False
     OnClick = btnRestartExplorerClick
-    SkinData.SkinSection = 'SPEEDBUTTON'
+    SkinData.SkinSection = 'TOOLBUTTON'
   end
-  object pnlSAR: TsPanel
+  object pnlRCCW: TsPanel
     Left = 0
     Top = 5
     Width = 314
@@ -200,10 +200,10 @@ object frmMain: TfrmMain
     Images = sCharImageList
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 2
+    TabOrder = 3
     TabStop = False
     OnClick = btnExitClick
-    SkinData.SkinSection = 'SPEEDBUTTON'
+    SkinData.SkinSection = 'TOOLBUTTON'
   end
   object btnAbout: TsBitBtn
     Left = 148
@@ -215,10 +215,10 @@ object frmMain: TfrmMain
     Images = sCharImageList
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 3
+    TabOrder = 2
     TabStop = False
     OnClick = btnAboutClick
-    SkinData.SkinSection = 'SPEEDBUTTON'
+    SkinData.SkinSection = 'TOOLBUTTON'
   end
   object sSkinProvider: TsSkinProvider
     ShowAppIcon = False

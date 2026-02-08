@@ -3,7 +3,7 @@
 interface
 
 uses
-  Winapi.Windows, System.SysUtils, Vcl.Forms, Registry;
+  Winapi.Windows, Registry;
 
 function RemoveShowMoreOptionsR: Boolean;
 

@@ -146,6 +146,8 @@
         <DCCReference Include="uMain.UI.pas"/>
         <DCCReference Include="uMain.UI.TweaksR.pas"/>
         <DCCReference Include="uMain.UI.TweaksW.pas"/>
+        <DCCReference Include="uMain.UI.Messages.pas"/>
+        <DCCReference Include="uMain.UI.Strings.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -167,7 +169,6 @@
                     <Source Name="MainSource">RestoreClassicContextMenu.dpr</Source>
                 </Source>
                 <Excluded_Packages>
-                    <Excluded_Packages Name="F:\Programming\Delphi\Projects_GitHub\Inno Setup\Components\UniPs\Dcu\D29\win32\PascalScript_Core_D29.bpl">File F:\Programming\Delphi\Projects_GitHub\Inno Setup\Components\UniPs\Dcu\D29\win32\PascalScript_Core_D29.bpl not found</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k290.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclofficexp290.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
                 </Excluded_Packages>
@@ -175,6 +176,12 @@
             <Deployment Version="4">
                 <DeployFile LocalName="RestoreClassicContextMenu.exe" Configuration="Release" Class="ProjectOutput">
                     <Platform Name="Win32">
+                        <RemoteName>RestoreClassicContextMenu.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="RestoreClassicContextMenu.exe" Configuration="Release" Class="ProjectOutput">
+                    <Platform Name="Win64">
                         <RemoteName>RestoreClassicContextMenu.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>

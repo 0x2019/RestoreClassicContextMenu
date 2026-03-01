@@ -1,24 +1,17 @@
-﻿unit uExt;
+﻿unit uExplorer;
 
 interface
 
 uses
   Winapi.Windows, System.SysUtils, TlHelp32;
 
-function RtlGetVersion(var RTL_OSVERSIONINFOEXW): LONG; stdcall; external 'ntdll.dll' Name 'RtlGetVersion';
-
 function IsExplorerRunning: Boolean;
 function IsExplorerUILoaded: Boolean;
-
-function IsWindowsVersionOrGreater(Major, Minor, Build: DWORD): Boolean;
 
 var
   IsRestartingExplorer: Boolean;
 
 implementation
-
-uses
-  uMain.UI;
 
 function IsExplorerRunning: Boolean;
 var
@@ -56,27 +49,6 @@ begin
   Result := IsExplorerRunning and
     (hProgman <> 0) and IsWindowVisible(hProgman) and
     (hTaskbar <> 0) and IsWindowVisible(hTaskbar);
-end;
-
-function IsWindowsVersionOrGreater(Major, Minor, Build: DWORD): Boolean;
-var
-  winver: RTL_OSVERSIONINFOEXW;
-begin
-  FillChar(winver, SizeOf(winver), 0);
-  winver.dwOSVersionInfoSize := SizeOf(winver);
-  Result := False;
-  if RtlGetVersion(winver) = 0 then
-  begin
-    if winver.dwMajorVersion > Major then
-      Exit(True);
-    if winver.dwMajorVersion = Major then
-    begin
-      if winver.dwMinorVersion > Minor then
-        Exit(True);
-      if winver.dwMinorVersion = Minor then
-        Exit(winver.dwBuildNumber >= Build);
-    end;
-  end;
 end;
 
 end.

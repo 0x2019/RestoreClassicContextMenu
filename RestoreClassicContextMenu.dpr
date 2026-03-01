@@ -4,17 +4,18 @@ uses
   Vcl.Forms,
   Winapi.Windows,
   uMain in 'uMain.pas' {frmMain},
-  uExt in 'uExt.pas',
-  uMain.UI in 'uMain.UI.pas',
-  uMain.UI.TweaksR in 'uMain.UI.TweaksR.pas',
-  uMain.UI.TweaksW in 'uMain.UI.TweaksW.pas',
-  uMain.UI.Messages in 'uMain.UI.Messages.pas',
-  uMain.UI.Strings in 'uMain.UI.Strings.pas';
+  uTweaksR in 'uTweaksR.pas',
+  uTweaksW in 'uTweaksW.pas',
+  uAppStrings in 'uAppStrings.pas',
+  uExplorer in 'Common\uExplorer.pas',
+  uForms in 'Common\uForms.pas',
+  uMessageBox in 'Common\uMessageBox.pas',
+  uOSUtils in 'Common\uOSUtils.pas',
+  uAppController in 'uAppController.pas';
 
 var
   uMutex: THandle;
 
-{$O+} {$SetPEFlags IMAGE_FILE_RELOCS_STRIPPED}
 {$R *.res}
 
 begin

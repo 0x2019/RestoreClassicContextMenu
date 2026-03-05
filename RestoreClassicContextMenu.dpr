@@ -1,17 +1,17 @@
 ﻿program RestoreClassicContextMenu;
 
 uses
-  Vcl.Forms,
   Winapi.Windows,
+  Vcl.Forms,
   uMain in 'uMain.pas' {frmMain},
+  uAppController in 'uAppController.pas',
+  uAppStrings in 'uAppStrings.pas',
   uTweaksR in 'uTweaksR.pas',
   uTweaksW in 'uTweaksW.pas',
-  uAppStrings in 'uAppStrings.pas',
-  uExplorer in 'Common\uExplorer.pas',
-  uForms in 'Common\uForms.pas',
-  uMessageBox in 'Common\uMessageBox.pas',
-  uOSUtils in 'Common\uOSUtils.pas',
-  uAppController in 'uAppController.pas';
+  uExplorer in '..\Common\uExplorer.pas',
+  uForms in '..\Common\uForms.pas',
+  uMessageBox in '..\Common\uMessageBox.pas',
+  uOSUtils in '..\Common\uOSUtils.pas';
 
 var
   uMutex: THandle;
@@ -27,15 +27,15 @@ begin
 
 begin
   uMutex := CreateMutex(nil, True, 'RCCM!');
-  if (uMutex <> 0 ) and (GetLastError = 0) then begin
+  if (uMutex <> 0) and (GetLastError = 0) then
+  begin
+    Application.Initialize;
+    Application.MainFormOnTaskbar := True;
+    Application.CreateForm(TfrmMain, frmMain);
+    Application.Run;
 
-  Application.Initialize;
-  Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TfrmMain, frmMain);
-  Application.Run;
-
-  if uMutex <> 0 then
-    CloseHandle(uMutex);
+    if uMutex <> 0 then
+      CloseHandle(uMutex);
   end;
 end;
 
